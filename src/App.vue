@@ -3,9 +3,9 @@
   <nav>
     <a v-for="(link, index) in navLinks" :key="index" :href="link.id" @click.prevent="scrollTo(link.id)">{{ link.text }} | </a>
   </nav>
-  <HomeView id="home"/>
-  <ProjectsView id="projects"/>
-  <ContactView id="contact" />
+  <HomeView id="home" class="view"/>
+  <ProjectsView id="projects" class="view"/>
+  <ContactView id="contact" class="view"/>
 </template>
 
 <script lang="ts">
@@ -60,5 +60,9 @@ nav {
 nav a {
   font-weight: bold;
   color: #2c3e50;
+}
+
+.view {
+  margin-bottom: 20px;
 }
 </style>
