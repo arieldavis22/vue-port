@@ -1,15 +1,61 @@
 <template>
-  <div style="height: 100vh; border-bottom: 1px red solid;">
-    contact
+  <div>
+    <form @submit.prevent="handleSubmit">
+      <label for="name">Name</label>
+      <input type="text" required v-model="name">
+
+      <label for="email">Email</label>
+      <input type="email" required v-model="email">
+
+      <label for="message">Message</label>
+      <textarea required v-model="message"></textarea>
+
+      <div class="submit">
+        <button>Send</button>
+      </div>
+
+    </form>
   </div>
 </template>
 
 <script>
-export default {
+import { defineComponent, ref } from "vue";
 
-}
+export default defineComponent({
+  name: "ContactView",
+  setup() {
+    const name = ref('')
+    const email = ref('')
+    const message = ref('')
+
+    const handleSubmit = () => {
+      console.log('working');
+    }
+
+
+    return { name, email, message, handleSubmit }
+  }
+})
 </script>
 
 <style>
+form {
+  max-width: 500px;
+  margin: auto;
+}
 
+label {
+  display: inline-block;
+  margin: 15px 0px 15px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+input,textarea {
+  display: block;
+  width: 100%;
+  padding: 10px 6px;
+  box-sizing: border-box;
+}
 </style>
