@@ -1,23 +1,25 @@
 <template>
   <div class="home">
     <div>
-      <h1>About me</h1>
+      <h1>Ariel Davis</h1>
       <div class="description">
         <span>
           <h5>Full-Stack Software Engineer</h5>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem voluptatum corporis obcaecati? Dolorum commodi repellat accusantium nam repellendus sunt illum impedit debitis rerum, labore excepturi enim itaque distinctio consectetur aspernatur?
+          A full-stack web developer with a passion for expansive learning.
         </span>
         <span>
           <h5>Latest Technologies</h5>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem illo eum dignissimos quo quam nisi consequuntur voluptatibus sed velit perferendis, necessitatibus possimus expedita quis, omnis consequatur ducimus ex nam autem.
+          Knowledge in up-to-date technologies such as React, Vue 3, Python, Javascript, Node, and Typescript
         </span>
         <span>
           <h5>A Cool Guy</h5>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione aut ipsam ipsa iure dolorem! Nobis rerum quo, beatae quas soluta provident, et harum voluptas odit, aut eveniet culpa! Possimus, odit!
+          Always down to have a talk or conversation! Click here to drop a greeting!
         </span>
       </div>
     </div>
-    <img src="../assets/ariel-davis-professional.jpg" alt="ad">
+    <div class="img-container circle">
+      <img class="circle" src="../assets/ariel-davis-professional.jpg" alt="ad">
+    </div>
   </div>
 
 </template>
@@ -59,8 +61,24 @@ export default defineComponent({
   text-align: left;
 }
 
+.home .img-container {
+  display: flex;
+  flex-shrink: 0;
+  height: calc(350px + 4vw);
+  width: calc(350px + 4vw);
+  margin: 25px;
+  background-image: linear-gradient(to bottom right, orange, rgb(255, 181, 44), rgb(228, 192, 126));
+
+}
+
 .home img {
-  height: 350px;
-  margin: 100px auto;
+  height: calc(330px + 4vw);
+  width: calc(330px + 4vw);
+  background-size: cover;
+  margin: auto;
+}
+
+.circle {
+  border-radius: 1000px;
 }
 </style>
