@@ -46,13 +46,14 @@ export default defineComponent({
   font-size: 1.8em;
   display: flex;
   flex-direction: column;
-  /* line-height: 1.5; */
+  line-height: 1.5;
 }
 .home .description h5 {
   margin-bottom: 4px;
 }
 .home .description span {
-  margin: 0px 0px 12px;
+  margin: 0px 0px 24px;
+  /* width: 50%; */
 }
 .home .description span:nth-child(even) {
   text-align: right;
@@ -66,7 +67,7 @@ export default defineComponent({
   flex-shrink: 0;
   height: calc(350px + 4vw);
   width: calc(350px + 4vw);
-  margin: 25px;
+  margin: 8em 25px 25px 25px;
   background-image: linear-gradient(to bottom right, orange, rgb(255, 181, 44), rgb(228, 192, 126));
 
 }

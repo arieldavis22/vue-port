@@ -36,9 +36,9 @@ export default defineComponent({
   }
   .modal {
     width: 400px;
-    padding: 20px;
-    margin: 200px auto;
+    padding: 10px;
+    margin: 100px auto;
     background: white;
-    border-radius: 10px;
+    border-radius: 5px;
   }
 </style>
