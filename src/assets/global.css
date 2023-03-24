@@ -4,3 +4,19 @@ body {
     padding: 20px;
     background: linear-gradient(170deg, white 33%, rgba(255, 165, 0, 0) 33%), linear-gradient(170deg, orange 66%, white 66%);
 }
+
+button {
+    background: white;
+    border: 2px orange solid;
+    padding: 10px 20px;
+    margin: 20px 10px 10px 10px;
+    border-radius: 12px;
+    font-size: large;
+    box-shadow: 4px 4px orange;
+}
+
+button:hover {
+    background: orange;
+    color: white;
+    box-shadow: 4px 4px rgba(255, 166, 0, 0.555);
+}

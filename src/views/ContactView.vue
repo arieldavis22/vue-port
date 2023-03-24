@@ -71,17 +71,6 @@ textarea {
   resize: none;
 }
 
-button {
-  background: white;
-  border: 2px orange solid;
-  padding: 10px 20px;
-  margin-top: 20px;
-  /* color: orange; */
-  border-radius: 12px;
-  font-size: large;
-  /* font-weight: 600; */
-  box-shadow: 4px 4px orange;
-}
 .submit {
   text-align: center;
 }

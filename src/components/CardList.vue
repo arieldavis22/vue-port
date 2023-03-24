@@ -57,11 +57,17 @@ export default defineComponent({
   0 41px 33px rgba(0, 0, 0, 0.08),
   0 100px 80px rgba(0, 0, 0, 0.12)
   ;
+  width: 210px;
+}
+
+.card-container .card:hover {
+  cursor: pointer;
 }
 
 .card-container .card img {
   height: 200px;
-  padding: 6px;
+  margin: 6px;
+  border: 1px rgba(0, 0, 0, 0.1) solid;
 }
 
 .card-container .card span {
