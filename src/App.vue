@@ -62,7 +62,6 @@ nav {
   width: 350px;
   display: table;
   margin: 0 auto;
-  /* transform: translateY(-50%); */
 }
 
 nav a {

@@ -53,13 +53,35 @@ export default defineComponent({
 }
 .home .description span {
   margin: 0px 0px 24px;
-  /* width: 50%; */
+  padding: 6px;
 }
 .home .description span:nth-child(even) {
   text-align: right;
 }
 .home .description span:nth-child(odd) {
   text-align: left;
+}
+
+.home .description span:nth-child(even)::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-bottom: 50px solid orange;
+  border-left: 50px solid transparent;
+  position: absolute;
+  left: 61%;
+}
+
+.home .description span:nth-child(odd)::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-bottom: 50px solid orange;
+  border-right: 50px solid transparent;
+  position: absolute;
+  left: 5%;
 }
 
 .home .img-container {
