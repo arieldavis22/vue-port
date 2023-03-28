@@ -1,15 +1,15 @@
 <template>
   <div class="contact">
     <h1>Say Hello</h1>
-    <form @submit.prevent="handleSubmit">
+    <form ref="contactForm" @submit.prevent="handleSubmit">
       <label for="name">Name</label>
-      <input type="text" required v-model="name">
+      <input name="from_name" id="from_name" type="text" required v-model="name">
 
       <label for="email">Email</label>
-      <input type="email" required v-model="email">
+      <input name="reply_to" id="reply_to" type="email" required v-model="email">
 
       <label for="message">Message</label>
-      <textarea required v-model="message"></textarea>
+      <textarea name="message" id="message" required v-model="message"></textarea>
 
       <div class="submit">
         <button>Send</button>
@@ -24,6 +24,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
+import emailjs from '@emailjs/browser'
 import Social from '../types/Social'
 
 export default defineComponent({
@@ -32,13 +33,11 @@ export default defineComponent({
     const name = ref('')
     const email = ref('')
     const message = ref('')
+    const contactForm = ref('')
 
-    const handleSubmit = () => {
-      console.log('working');
-    }
 
     const handleClick = (id: Social) => {
-      let url = null
+      let url = ''
       switch (id) {
         case 'github':
           url = 'https://github.com/arieldavis22'
@@ -52,8 +51,16 @@ export default defineComponent({
       window.open(url, '_break')
     }
 
+    const handleSubmit = () => {      
+      emailjs.sendForm('service_y418teb', 'template_8ai5ujy', contactForm.value, 'ubZdCNPycE6qeH15a')
+        .then((result) => {
+            console.log('SUCCESS!', result.text);
+        }, (error) => {
+            console.log('FAILED...', error.text);
+        });
+    }
 
-    return { name, email, message, handleSubmit, handleClick }
+    return { name, email, message, contactForm, handleSubmit, handleClick }
   }
 })
 </script>
