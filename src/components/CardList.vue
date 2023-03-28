@@ -1,8 +1,10 @@
 <template>
   <div class="card-container">
-    <div v-if="dataCard">
-      <ModalComponent :data="dataCard" v-if="dataCard.modal" @close="toggleModal(dataCard)"/>
-    </div>
+    <Transition name="modal">
+      <div v-if="dataCard && dataCard.modal">
+        <ModalComponent :data="dataCard" v-if="dataCard.modal" @close="toggleModal(dataCard)"/>
+      </div>
+    </Transition>
     <div class="card" v-for="card in data" :key="card.id" @click="toggleModal(card)">
       <img :src="card.img" :alt="'c' + card.id">
       <span>{{ card.title }}</span>
@@ -72,5 +74,15 @@ export default defineComponent({
 
 .card-container .card span {
   padding: 6px;
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
 }
 </style>

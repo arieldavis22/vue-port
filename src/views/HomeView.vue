@@ -2,6 +2,13 @@
   <div class="home">
     <div>
       <h1>Ariel Davis</h1>
+      <div class="background-shapes">
+        <img src="../assets/line-shape.svg" alt="line1">
+        <img src="../assets/line-shape.svg" alt="line2">
+        <img src="../assets/line-shape.svg" alt="line3">
+        <img src="../assets/line-shape.svg" alt="line4">
+        <img src="../assets/line-shape.svg" alt="line5">
+      </div>
       <div class="description">
         <span>
           <h5>Full-Stack Software Engineer</h5>
@@ -18,7 +25,7 @@
       </div>
     </div>
     <div class="img-container circle">
-      <img class="circle" src="../assets/ariel-davis-professional.jpg" alt="ad">
+      <img class="face circle" src="../assets/ariel-davis-professional.jpg" alt="ad">
     </div>
   </div>
 
@@ -55,33 +62,22 @@ export default defineComponent({
   margin: 0px 0px 24px;
   padding: 6px;
 }
+
 .home .description span:nth-child(even) {
   text-align: right;
+  animation: floating 4s ease-in-out;
+  animation-iteration-count: infinite;
 }
 .home .description span:nth-child(odd) {
   text-align: left;
+  animation: floating 5s ease-in-out;
+  animation-iteration-count: infinite;
 }
 
-.home .description span:nth-child(even)::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-  border-bottom: 50px solid orange;
-  border-left: 50px solid transparent;
-  position: absolute;
-  left: 61%;
-}
-
-.home .description span:nth-child(odd)::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-  border-bottom: 50px solid orange;
-  border-right: 50px solid transparent;
-  position: absolute;
-  left: 5%;
+@keyframes floating {
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, 5px); }
+    to   { transform: translate(0, -0px); }    
 }
 
 .home .img-container {
@@ -90,18 +86,72 @@ export default defineComponent({
   height: calc(350px + 4vw);
   width: calc(350px + 4vw);
   margin: 8em 25px 25px 25px;
-  background-image: linear-gradient(to bottom right, orange, rgb(255, 181, 44), rgb(228, 192, 126));
+  background-image: linear-gradient(to bottom right, orange, white);
 
 }
 
-.home img {
+.home img.face {
   height: calc(330px + 4vw);
   width: calc(330px + 4vw);
   background-size: cover;
   margin: auto;
+  mask-image: linear-gradient(45deg, #000 25%, rgba(0,0,0,0.2) 50%, #000 75%);
+  mask-size: 800%;
+  mask-position: 0;
+  animation: photomask 15s ease;
+  animation-iteration-count: infinite;
+}
+
+@keyframes photomask {
+  0% { 
+    mask-position: 0;
+    opacity: 1;
+   }
+  20%, 100% { mask-position: 120%; }
 }
 
 .circle {
   border-radius: 1000px;
+}
+.background-shapes img {
+  position: absolute;
+  height: 400px;
+  animation: shake 1s ease;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  50% {
+    transform: translateX(2px);
+  }
+  0%,100% {
+    transform: translateX(0px);
+  }
+}
+
+.background-shapes img:nth-child(1){
+  top: 0;
+  left: -5%;
+  rotate: 60deg;
+}
+.background-shapes img:nth-child(2){
+  top: 20%;
+  left: 55%;
+  rotate: 130deg;
+}
+.background-shapes img:nth-child(3){
+  top: 30%;
+  left: 20%;
+  rotate: 180deg;
+}
+.background-shapes img:nth-child(4){
+  top: 45%;
+  left: 60%;
+  rotate: 10deg;
+}
+.background-shapes img:nth-child(5){
+  top: 60%;
+  left: 2%;
+  rotate: 130deg;
 }
 </style>
