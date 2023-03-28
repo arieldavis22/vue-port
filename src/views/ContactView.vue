@@ -14,13 +14,17 @@
       <div class="submit">
         <button>Send</button>
       </div>
-
     </form>
+    <div class="icons">
+      <font-awesome-icon class="icon" :icon="['fab', 'github']"  @click="handleClick('github')" />
+      <font-awesome-icon class="icon" :icon="['fab', 'linkedin']" @click="handleClick('linkedin')" />
+    </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref } from "vue";
+import Social from '../types/Social'
 
 export default defineComponent({
   name: "ContactView",
@@ -33,8 +37,23 @@ export default defineComponent({
       console.log('working');
     }
 
+    const handleClick = (id: Social) => {
+      let url = null
+      switch (id) {
+        case 'github':
+          url = 'https://github.com/arieldavis22'
+          break;
+        case 'linkedin':
+          url = 'https://www.linkedin.com/in/arieladavis/'
+          break;
+        default:
+          break;
+      }
+      window.open(url, '_break')
+    }
 
-    return { name, email, message, handleSubmit }
+
+    return { name, email, message, handleSubmit, handleClick }
   }
 })
 </script>
@@ -43,12 +62,12 @@ export default defineComponent({
 .contact {
   height: 40em;
 }
-form {
+.contact form {
   max-width: 500px;
   margin: auto;
 }
 
-label {
+.contact label {
   display: inline-block;
   margin: 15px 0px 15px;
   font-size: 1.2em;
@@ -56,7 +75,7 @@ label {
   text-transform: uppercase;
 }
 
-input,textarea {
+.contact input,textarea {
   display: block;
   width: 100%;
   padding: 10px 6px;
@@ -66,12 +85,26 @@ input,textarea {
   box-shadow: 2px 2px orange;
 }
 
-textarea {
+.contact textarea {
   height: 10em;
   resize: none;
 }
 
-.submit {
+.contact .submit {
   text-align: center;
+}
+
+.contact .icons {
+  font-size: 50px;
+  margin-top: 30px;
+}
+
+.contact .icons .icon {
+  margin: 10px;
+  transition: all .2s ease-in-out;
+}
+.contact .icons .icon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 </style>

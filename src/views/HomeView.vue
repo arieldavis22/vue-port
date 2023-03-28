@@ -3,11 +3,11 @@
     <div>
       <h1>Ariel Davis</h1>
       <div class="background-shapes">
-        <img src="../assets/line-shape.svg" alt="line1">
-        <img src="../assets/line-shape.svg" alt="line2">
-        <img src="../assets/line-shape.svg" alt="line3">
-        <img src="../assets/line-shape.svg" alt="line4">
-        <img src="../assets/line-shape.svg" alt="line5">
+        <img src="../assets/svg_icons/line-shape.svg" alt="line1">
+        <img src="../assets/svg_icons/line-shape.svg" alt="line2">
+        <img src="../assets/svg_icons/line-shape.svg" alt="line3">
+        <img src="../assets/svg_icons/line-shape.svg" alt="line4">
+        <img src="../assets/svg_icons/line-shape.svg" alt="line5">
       </div>
       <div class="description">
         <span>
