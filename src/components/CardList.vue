@@ -60,10 +60,12 @@ export default defineComponent({
   0 100px 80px rgba(0, 0, 0, 0.12)
   ;
   width: 210px;
+  transition: all .2s ease-in-out;
 }
 
 .card-container .card:hover {
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 .card-container .card img {
