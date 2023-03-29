@@ -1,6 +1,6 @@
 <template>
   <div class="card-container">
-    <Transition name="modal">
+    <Transition name="fade">
       <div v-if="dataCard && dataCard.modal">
         <ModalComponent :data="dataCard" v-if="dataCard.modal" @close="toggleModal(dataCard)"/>
       </div>
@@ -76,15 +76,5 @@ export default defineComponent({
 
 .card-container .card span {
   padding: 6px;
-}
-
-.modal-enter-active,
-.modal-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.modal-enter-from,
-.modal-leave-to {
-  opacity: 0;
 }
 </style>

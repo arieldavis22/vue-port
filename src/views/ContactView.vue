@@ -1,20 +1,26 @@
 <template>
   <div class="contact">
-    <h1>Say Hello</h1>
-    <form ref="contactForm" @submit.prevent="handleSubmit">
-      <label for="name">Name</label>
-      <input name="from_name" id="from_name" type="text" required v-model="name">
-
-      <label for="email">Email</label>
-      <input name="reply_to" id="reply_to" type="email" required v-model="email">
-
-      <label for="message">Message</label>
-      <textarea name="message" id="message" required v-model="message"></textarea>
-
-      <div class="submit">
-        <button>Send</button>
+    <Transition name="fade">
+      <form v-if="showForm" ref="contactForm" @submit.prevent="handleSubmit">
+        <h1 v-if="showForm">Say Hello</h1>
+        <label for="name">Name</label>
+        <input name="from_name" id="from_name" type="text" required v-model="name">
+  
+        <label for="email">Email</label>
+        <input name="reply_to" id="reply_to" type="email" required v-model="email">
+  
+        <label for="message">Message</label>
+        <textarea name="message" id="message" required v-model="message"></textarea>
+  
+        <div class="submit">
+          <button>Send</button>
+        </div>
+      </form>
+      <div v-else>
+        <h2>Thank you for saying hello!</h2>
+        <h2>Feel free to check out my socials below!</h2>
       </div>
-    </form>
+    </Transition>
     <div class="icons">
       <font-awesome-icon class="icon" :icon="['fab', 'github']"  @click="handleClick('github')" />
       <font-awesome-icon class="icon" :icon="['fab', 'linkedin']" @click="handleClick('linkedin')" />
@@ -34,6 +40,7 @@ export default defineComponent({
     const email = ref('')
     const message = ref('')
     const contactForm = ref('')
+    const showForm = ref(true)
 
 
     const handleClick = (id: Social) => {
@@ -52,6 +59,7 @@ export default defineComponent({
     }
 
     const handleSubmit = () => {      
+      showForm.value = false
       emailjs.sendForm('service_y418teb', 'template_8ai5ujy', contactForm.value, 'ubZdCNPycE6qeH15a')
         .then((result) => {
             console.log('SUCCESS!', result.text);
@@ -60,7 +68,7 @@ export default defineComponent({
         });
     }
 
-    return { name, email, message, contactForm, handleSubmit, handleClick }
+    return { name, email, message, contactForm, showForm, handleSubmit, handleClick }
   }
 })
 </script>

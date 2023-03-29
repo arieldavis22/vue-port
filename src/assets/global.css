@@ -20,3 +20,13 @@ button:hover {
     color: white;
     box-shadow: 4px 4px rgba(255, 166, 0, 0.555);
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+ }
