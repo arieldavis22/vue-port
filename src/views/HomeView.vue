@@ -20,7 +20,7 @@
         </span>
         <span>
           <h5>A Cool Guy</h5>
-          Always down to have a talk or conversation! Click here to drop a greeting!
+          Always down to have a talk or conversation! Go to the Contact section and drop a greeting!
         </span>
       </div>
     </div>
